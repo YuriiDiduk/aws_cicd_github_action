@@ -1,21 +1,14 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /opt/projectx
-permissions:
-  - object: /opt/projectx
-    owner: ubuntu
-    group: ubuntu
-    type:
-      - directory
-      - file
+  - source: .
+    destination: /home/ec2-user/spring-boot-mongo/
 hooks:
+  AfterInstall:
+   - location: setup.sh
+     timeout: 300
+     runas: root
   ApplicationStart:
-    - location: scripts/start_server.sh
-      timeout: 300
-      runas: ubuntu
-  ApplicationStop:
-    - location: scripts/stop_server.sh
-      timeout: 300
-      runas: ubuntu
+   - location: run.sh
+     timeout: 300
+     runas: root
