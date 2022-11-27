@@ -24,5 +24,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: "password"
 #    volumes:
 #      - $HOME/mongo:/data/db
+#cfgfrg
     healthcheck:
       test: "exit 0"
